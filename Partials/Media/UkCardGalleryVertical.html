@@ -1,0 +1,28 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{gallery.position.vertical} == above">
+<f:if condition="{gallery.rows}">
+		<f:for each="{gallery.rows}" as="row">
+				<f:for each="{row.columns}" as="column">
+					<f:if condition="{column.media}">
+						<div class="uk-card-media-top">
+							<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+						</div>
+					</f:if>
+				</f:for>
+		</f:for>
+</f:if>
+</f:if>
+<f:if condition="{gallery.position.vertical} == below">
+<f:if condition="{gallery.rows}">
+		<f:for each="{gallery.rows}" as="row">
+				<f:for each="{row.columns}" as="column">
+					<f:if condition="{column.media}">
+						<div class="uk-card-media-bottom">
+							<f:render partial="Media/UkCardType" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+						</div>
+					</f:if>
+				</f:for>
+		</f:for>
+</f:if>
+</f:if>
+</html>
